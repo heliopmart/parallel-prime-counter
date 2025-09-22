@@ -4,13 +4,13 @@
 using namespace std;
 
 struct MatrixConfig {
-    int rows;
-    int cols;
+    int rows = 0;
+    int cols = 0;
     int seed = 0;
 };
 
 struct ThreadConfig {
-    int n_threads;
+    int n_threads = 0;
     int chunk_size = 100;
 };
 
@@ -96,6 +96,10 @@ void startMultiThreadProcessing(AppConfig& appConfig, ThreadConfig& threadConfig
         cerr << "Matriz não inicializada. Por favor, processe a matriz primeiro." << endl;
         return;
     }
+    if(threadConfig.n_threads <= 0){
+        cerr << "Número de threads inválido. Por favor, configure as threads primeiro." << endl;
+        return;
+    }
 
     cout << "Iniciando processamento com " << threadConfig.n_threads << " threads e chunk size de " << threadConfig.chunk_size << endl;
     
@@ -110,6 +114,8 @@ int main(){
     MatrixConfig matConfig;
     ThreadConfig threadConfig;
     AppConfig appConfig;
+
+
 
     while(true){
         cout << string(50, '=') << endl;

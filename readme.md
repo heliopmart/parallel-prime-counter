@@ -1,6 +1,6 @@
 # Trabalho de SO: Manipulação de Threads
 
-- GIT: 
+- GIT: https://github.com/heliopmart/parallel-prime-counter.git
 
 ## Como Executar
 
